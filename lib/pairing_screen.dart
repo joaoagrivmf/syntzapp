@@ -1,28 +1,4 @@
 import 'package:flutter/material.dart';
-
-class PairingScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Pairing Screen"),
-      ),
-      body: Center(
-        child: Text("Pairing Screen Content"),
-      ),
-    );
-  }
-}
-
-
-
-
-
-
-
-
-
-import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -33,18 +9,18 @@ class PairingScreen extends StatefulWidget {
 }
 
 class _PairingScreenState extends State<PairingScreen> {
-  QRViewController _controller;
+  QRViewController? _controller;
   final GlobalKey _qrKey = GlobalKey(debugLabel: 'QR');
-  String _syntzId = '';
-  String _syntzIpAddress = '';
-  String _syntzSsid = '';
-  String _syntzPassword = '';
+  String? _syntzId = '';
+  String? _syntzIpAddress = '';
+  String? _syntzSsid = '';
+  String? _syntzPassword = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pairing'),
+        title: const Text('Pairing'),
       ),
       body: Column(
         children: [
@@ -60,7 +36,7 @@ class _PairingScreenState extends State<PairingScreen> {
             child: Center(
               child: Text(
                 'Syntz ID: $_syntzId',
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
               ),
             ),
           ),
@@ -73,13 +49,13 @@ class _PairingScreenState extends State<PairingScreen> {
                   onPressed: () {
                     Navigator.pop(context); // Cancel button
                   },
-                  child: Text('Cancel'),
+                  child: const Text('Cancel'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     _connectToDevice(); // Connect button
                   },
-                  child: Text('Connect'),
+                  child: const Text('Connect'),
                 ),
               ],
             ),
@@ -93,7 +69,7 @@ class _PairingScreenState extends State<PairingScreen> {
     this._controller = controller;
     controller.scannedDataStream.listen((scanData) {
       setState(() {
-        _parseQRCodeData(scanData.code);
+        _parseQRCodeData(scanData.code ?? 'todo to be defined value');
       });
     });
   }
@@ -126,14 +102,14 @@ class _PairingScreenState extends State<PairingScreen> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Success'),
-              content: Text('Connected to Syntz device.'),
+              title: const Text('Success'),
+              content: const Text('Connected to Syntz device.'),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             );
@@ -145,14 +121,14 @@ class _PairingScreenState extends State<PairingScreen> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Error'),
-              content: Text('Failed to connect to Syntz device.'),
+              title: const Text('Error'),
+              content: const Text('Failed to connect to Syntz device.'),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             );
@@ -165,14 +141,14 @@ class _PairingScreenState extends State<PairingScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Error'),
+            title: const Text('Error'),
             content: Text('Failed to connect to Syntz device: $e'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           );
@@ -183,7 +159,7 @@ class _PairingScreenState extends State<PairingScreen> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 }
