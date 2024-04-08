@@ -1,3 +1,55 @@
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.3
+
+
+
+
+
+
+
+
+
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+Future<bool> simulateAPICall(String username, String password) async {
+  final String apiUrl = 'https://your-api-url/syntz_login'; // Replace with your actual API URL
+
+  try {
+    final response = await http.post(
+      Uri.parse(apiUrl),
+      body: {
+        'username': username,
+        'password': password,
+      },
+    );
+
+    if (response.statusCode == 200) {
+      // If the API call is successful
+      final responseData = json.decode(response.body);
+      bool loginSuccess = responseData['success']; // Assuming API response contains a 'success' field
+      return loginSuccess;
+    } else {
+      // If the API call fails
+      print('Failed to call API: ${response.statusCode}');
+      return false;
+    }
+  } catch (e) {
+    // If an error occurs during the API call
+    print('Error calling API: $e');
+    return false;
+  }
+}
+
+
+
+
+
+
+
+
 void _connectToDevice() async {
   // Make an API call to the Syntz device's pint endpoint
   String url = 'http://$_syntzIpAddress/pint';
