@@ -1,334 +1,22 @@
 import 'package:flutter/material.dart';
-
-class LoginScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Login Screen"),
-      ),
-      body: Center(
-        child: Text("Login Screen Content"),
-      ),
-    );
-  }
-}
-
-
-
-
-
-
-
-import 'package:flutter/material.dart';
-
-class LoginScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Username',
-                hintText: 'Enter your username',
-              ),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: 'Password',
-                hintText: 'Enter your password',
-              ),
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle cancel button pressed
-                    Navigator.pop(context);
-                  },
-                  child: Text('Cancel'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle login button pressed
-                    // Add your login logic here
-                  },
-                  child: Text('Login'),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
-
-
-
-
-
-
-
-import 'package:flutter/material.dart';
-
-class LoginScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Username',
-                hintText: 'Enter your username',
-              ),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              obscureText: true, // Show asterisks for password
-              decoration: InputDecoration(
-                labelText: 'Password',
-                hintText: 'Enter your password',
-              ),
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle cancel button pressed
-                    Navigator.pop(context);
-                  },
-                  child: Text('Cancel'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle login button pressed
-                    // Add your login logic here
-                  },
-                  child: Text('Login'),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
-
-
-
-
-
-
-
-import 'package:flutter/material.dart';
-
-class LoginScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TextField(
-              maxLength: 50, // Limit username to 50 characters
-              decoration: InputDecoration(
-                labelText: 'Username',
-                hintText: 'Enter your username',
-              ),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              maxLength: 50, // Limit password to 50 characters
-              obscureText: true, // Show asterisks for password
-              decoration: InputDecoration(
-                labelText: 'Password',
-                hintText: 'Enter your password',
-              ),
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle cancel button pressed
-                    Navigator.pop(context);
-                  },
-                  child: Text('Cancel'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle login button pressed
-                    // Add your login logic here
-                  },
-                  child: Text('Login'),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
-
-
-
-
-
-
-import 'package:flutter/material.dart';
-import 'package:your_app_name/config.dart';
-import 'package:your_app_name/home_screen.dart';
-import 'package:your_app_name/pair_screen.dart';
-
-class LoginScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TextField(
-              maxLength: 50, // Limit username to 50 characters
-              decoration: InputDecoration(
-                labelText: 'Username',
-                hintText: 'Enter your username',
-              ),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              maxLength: 50, // Limit password to 50 characters
-              obscureText: true, // Show asterisks for password
-              decoration: InputDecoration(
-                labelText: 'Password',
-                hintText: 'Enter your password',
-              ),
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle cancel button pressed
-                    Navigator.pop(context);
-                  },
-                  child: Text('Cancel'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle login button pressed
-                    if (Config.tokenExpiration > DateTime.now().millisecondsSinceEpoch) {
-                      if (Config.objectId != null && Config.objectId != '') {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
-                        );
-                      } else {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => PairScreen()),
-                        );
-                      }
-                    } else {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: Text('Warning'),
-                            content: Text('Token expiration is not valid.'),
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text('OK'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                    }
-                  },
-                  child: Text('Login'),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
-
-
-
-
-
-
-import 'package:flutter/material.dart';
-import 'package:your_app_name/config.dart';
-import 'package:your_app_name/home_screen.dart';
-import 'package:your_app_name/pair_screen.dart';
+import 'package:syntzapp/config_util.dart';
+import 'package:syntzapp/home_screen.dart';
+import 'package:syntzapp/pairing_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   Future<void> _login(BuildContext context) async {
     // If token expiration is null, empty, or expired, call the API to validate user and password
-    if (Config.tokenExpiration == null ||
-        Config.tokenExpiration < DateTime.now().millisecondsSinceEpoch) {
+    if (ConfigUtil.tokenExpiration == null ||
+        ConfigUtil.tokenExpiration < DateTime.now().millisecondsSinceEpoch) {
       // Simulate API call - replace with your actual API call
-      await Future.delayed(Duration(seconds: 2)); // Simulate 2 seconds delay
+      await Future.delayed(
+          const Duration(seconds: 2)); // Simulate 2 seconds delay
       // Mock response from API
       bool loginSuccess =
           true; // Replace with actual logic to validate user and password
       if (loginSuccess) {
         // If login is successful, set token and expiration date
-        Config.setTokenExpiration(DateTime.now().millisecondsSinceEpoch +
+        ConfigUtil.setTokenExpiration(DateTime.now().millisecondsSinceEpoch +
             3600 * 1000); // Example: 1 hour from now
       } else {
         // If login fails, show error message and return
@@ -336,14 +24,14 @@ class LoginScreen extends StatelessWidget {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Error'),
-              content: Text('Invalid username or password.'),
+              title: const Text('Error'),
+              content: const Text('Invalid username or password.'),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             );
@@ -354,9 +42,9 @@ class LoginScreen extends StatelessWidget {
     }
 
     // Check if the token expiration is still valid after API call
-    if (Config.tokenExpiration > DateTime.now().millisecondsSinceEpoch) {
+    if (ConfigUtil.tokenExpiration > DateTime.now().millisecondsSinceEpoch) {
       // If token expiration is valid, navigate to home screen
-      if (Config.objectId != null && Config.objectId.isNotEmpty) {
+      if (ConfigUtil.objectId != null && ConfigUtil.objectId != 0) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => HomeScreen()),
@@ -364,7 +52,7 @@ class LoginScreen extends StatelessWidget {
       } else {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => PairScreen()),
+          MaterialPageRoute(builder: (context) => PairingScreen()),
         );
       }
     } else {
@@ -373,14 +61,14 @@ class LoginScreen extends StatelessWidget {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Warning'),
-            content: Text('Token expiration is not valid.'),
+            title: const Text('Warning'),
+            content: const Text('Token expiration is not valid.'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           );
@@ -393,7 +81,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -401,15 +89,15 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            TextField(
+            const TextField(
               maxLength: 50, // Limit username to 50 characters
               decoration: InputDecoration(
                 labelText: 'Username',
                 hintText: 'Enter your username',
               ),
             ),
-            SizedBox(height: 20),
-            TextField(
+            const SizedBox(height: 20),
+            const TextField(
               maxLength: 50, // Limit password to 50 characters
               obscureText: true, // Show asterisks for password
               decoration: InputDecoration(
@@ -417,7 +105,7 @@ class LoginScreen extends StatelessWidget {
                 hintText: 'Enter your password',
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -426,14 +114,14 @@ class LoginScreen extends StatelessWidget {
                     // Handle cancel button pressed
                     Navigator.pop(context);
                   },
-                  child: Text('Cancel'),
+                  child: const Text('Cancel'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Handle login button pressed
                     _login(context);
                   },
-                  child: Text('Login'),
+                  child: const Text('Login'),
                 ),
               ],
             ),
