@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syntzapp/parent_screen.dart';
-import 'package:syntzapp/syntz_device.dart'; // Assuming the Syntz class is defined in this file
+//import 'package:syntzapp/syntz_device.dart'; // Assuming the Syntz class is defined in this file
 
 class MonitoringScreen extends StatefulWidget {
   @override
@@ -74,7 +74,7 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -82,7 +82,7 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
               Text('$batteryValue AMPs'),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -90,7 +90,7 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
               Text('$powerValue KWH'),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -105,14 +105,17 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
 
   void updateMonitoringValues() {
     if (nowButtonOn) {
+      print('todo');
       // batteryValue = SyntzAPI.getBatteryUsage();
       // powerValue = Syntz.getPowerNow();
       // usageValue = Syntz.getUsageNow();
     } else if (todayButtonOn) {
+      print('todo');
       // batteryValue = Syntz.getBatteryToday();
       // powerValue = Syntz.getPowerToday();
       // usageValue = Syntz.getUsageToday();
     } else if (allButtonOn) {
+      print('todo');
       // batteryValue = Syntz.getBatteryAll();
       // powerValue = Syntz.getPowerAll();
       // usageValue = Syntz.getUsageAll();
