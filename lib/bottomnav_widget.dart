@@ -1,66 +1,13 @@
 import 'package:flutter/material.dart';
-
-class BottomNavBar extends StatelessWidget {
-  final Function() onLoginPressed;
-  final Function() onPairingPressed;
-  final Function() onHomePressed;
-  final Function() onSettingsPressed;
-  final Function() onMonitoringPressed;
-
-  BottomNavBar({
-    @required this.onLoginPressed,
-    @required this.onPairingPressed,
-    @required this.onHomePressed,
-    @required this.onSettingsPressed,
-    @required this.onMonitoringPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return BottomAppBar(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          IconButton(
-            icon: Icon(Icons.login),
-            onPressed: onLoginPressed,
-          ),
-          IconButton(
-            icon: Icon(Icons.bluetooth),
-            onPressed: onPairingPressed,
-          ),
-          IconButton(
-            icon: Icon(Icons.home),
-            onPressed: onHomePressed,
-          ),
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: onSettingsPressed,
-          ),
-          IconButton(
-            icon: Icon(Icons.monitor),
-            onPressed: onMonitoringPressed,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-
-
-
-
-
-
-
-
-import 'package:flutter/material.dart';
+import 'package:syntzapp/login_screen.dart';
+import 'package:syntzapp/pairing_screen.dart';
+import 'package:syntzapp/home_screen.dart';
+import 'package:syntzapp/settings_screen.dart';
+import 'package:syntzapp/monitoring_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   final BuildContext context;
-
-  BottomNavBar({@required this.context});
+  BottomNavBar({required this.context});
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +16,7 @@ class BottomNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           IconButton(
-            icon: Icon(Icons.login),
+            icon: const Icon(Icons.login),
             onPressed: () {
               Navigator.push(
                 context,
@@ -78,7 +25,7 @@ class BottomNavBar extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: Icon(Icons.bluetooth),
+            icon: const Icon(Icons.bluetooth),
             onPressed: () {
               Navigator.push(
                 context,
@@ -87,13 +34,16 @@ class BottomNavBar extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             onPressed: () {
-              // Do nothing as we are already on the home screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
             },
           ),
           IconButton(
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
             onPressed: () {
               Navigator.push(
                 context,
@@ -102,11 +52,11 @@ class BottomNavBar extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: Icon(Icons.monitor),
+            icon: const Icon(Icons.monitor),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MonitorScreen()),
+                MaterialPageRoute(builder: (context) => MonitoringScreen()),
               );
             },
           ),
