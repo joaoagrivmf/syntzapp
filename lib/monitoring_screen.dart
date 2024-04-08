@@ -1,4 +1,29 @@
 import 'package:flutter/material.dart';
+
+class MonitoringScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Monitoring Screen"),
+      ),
+      body: Center(
+        child: Text("Monitoring Screen Content"),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+import 'package:flutter/material.dart';
 import 'package:your_app_name/parent_screen.dart';
 
 class MonitoringScreen extends StatefulWidget {

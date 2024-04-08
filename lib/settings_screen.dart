@@ -1,4 +1,27 @@
 import 'package:flutter/material.dart';
+
+class SettingsScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Settings Screen"),
+      ),
+      body: Center(
+        child: Text("Settings Screen Content"),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+import 'package:flutter/material.dart';
 import 'package:your_app_name/parent_screen.dart';
 
 class SettingsScreen extends StatelessWidget {

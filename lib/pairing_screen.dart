@@ -1,4 +1,28 @@
 import 'package:flutter/material.dart';
+
+class PairingScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Pairing Screen"),
+      ),
+      body: Center(
+        child: Text("Pairing Screen Content"),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
