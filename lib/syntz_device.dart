@@ -68,12 +68,12 @@ class SyntzAPI {
     return await _makeApiCall('monitor/off');
   }
 
-  Future<int> getBatteryUsage() async {
+  Future<double> getBatteryUsage() async {
     String url = 'http://$_syntzIpAddress/battery/usage';
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        return int.parse(response.body);
+        return double.parse(response.body);
       } else {
         return -1; // Error occurred
       }
@@ -83,12 +83,12 @@ class SyntzAPI {
     }
   }
 
-  Future<int> getPowerUsage() async {
+  Future<double> getPowerUsage() async {
     String url = 'http://$_syntzIpAddress/power/usage';
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        return int.parse(response.body);
+        return double.parse(response.body);
       } else {
         return -1; // Error occurred
       }
@@ -98,12 +98,12 @@ class SyntzAPI {
     }
   }
 
-  Future<int> getChargeUsage() async {
+  Future<double> getChargeUsage() async {
     String url = 'http://$_syntzIpAddress/charge/usage';
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        return int.parse(response.body);
+        return double.parse(response.body);
       } else {
         return -1; // Error occurred
       }
