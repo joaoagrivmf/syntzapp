@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 
-class Config {
+class ConfigUtil {
   static String _userEmail = "";
   static String _userPassword = "";
   static int _token = 0;
