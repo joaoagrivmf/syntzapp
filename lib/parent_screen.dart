@@ -4,67 +4,12 @@ class ParentScreen extends StatelessWidget {
   final Widget child;
   final String title;
   final String subtitle;
-
-  ParentScreen({
-    @required this.child,
-    @required this.title,
-    @required this.subtitle,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Column(
-        children: [
-          // Menu bar implementation here
-          // Set of 5 circles implementation here
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  subtitle,
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
-                ),
-              ],
-            ),
-          ),
-          Expanded(child: child),
-          // Navigation bar implementation here
-        ],
-      ),
-    );
-  }
-}
-
-
-
-
-
-
-
-
-
-import 'package:flutter/material.dart';
-
-class ParentScreen extends StatelessWidget {
-  final Widget child;
-  final String title;
-  final String subtitle;
   final int selectedIndex;
 
   ParentScreen({
-    @required this.child,
-    @required this.title,
-    @required this.subtitle,
+    required this.child,
+    required this.title,
+    required this.subtitle,
     this.selectedIndex = 0,
   });
 
@@ -85,11 +30,12 @@ class ParentScreen extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 Text(
                   subtitle,
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                  style: const TextStyle(fontSize: 16, color: Colors.grey),
                 ),
               ],
             ),
